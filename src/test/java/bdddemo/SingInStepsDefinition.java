@@ -21,14 +21,13 @@ public class SingInStepsDefinition {
 
     @Before
     public void setupTest() {
-        //Test on chrome
-        //this.driver = new ChromeDriver();
-        //Neu muon test tren firefox
-        this.driver = new FirefoxDriver();
-        //safari
-        //this.driver = new SafariDriver();
-        this.signInPage = new SignInPage(driver);
+        String browser = System.getProperty("browser", "chrome");
+        if(browser.equalsIgnoreCase("chrome"))
+            this.driver = new ChromeDriver();
+        else
+            this.driver = new FirefoxDriver();
 
+        this.signInPage = new SignInPage(driver);
         this.driver.manage().window().maximize();
     }
 

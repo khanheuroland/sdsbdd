@@ -11,8 +11,8 @@ import static io.cucumber.junit.platform.engine.Constants.PLUGIN_PROPERTY_NAME;
 @Suite
 @IncludeEngines("cucumber")
 @SelectPackages("bdddemo")
-@ConfigurationParameter(key = PLUGIN_PROPERTY_NAME, value = "pretty, html:target/cucumber-report/report.html, " +
-        "json:target/cucumber-report/report.json")
+@ConfigurationParameter(key = PLUGIN_PROPERTY_NAME, value = "pretty, html:target/reports/chrome/report.html, " +
+        "json:target/reports/chrome/report.json")
 @ConfigurationParameter(key = GLUE_PROPERTY_NAME, value = "bdddemo")
-public class RunCucumberTest {
+public class RunCucumberChromeTest {
 }
