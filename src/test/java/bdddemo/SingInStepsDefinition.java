@@ -3,10 +3,9 @@ package bdddemo;
 import bdddemo.pageobjects.SignInPage;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
+import io.cucumber.java.Scenario;
 import io.cucumber.java.en.*;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.safari.SafariDriver;
@@ -34,7 +33,10 @@ public class SingInStepsDefinition {
     }
 
     @After
-    public void finishTest() {
+    public void finishTest(Scenario  scenario) {
+        byte[] screenshot = ((TakesScreenshot)this.driver).getScreenshotAs(OutputType.BYTES);
+
+        scenario.attach(screenshot, "image/png", "Screenshot");
         this.driver.quit();
     }
 
